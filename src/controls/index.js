@@ -1,7 +1,10 @@
 import Move from './Move';
-import Draw from './Draw';
+import Freehand from './Freehand';
 
 export default [
   Move,
-  Draw,
+  Freehand,
+  Rectangle,
+  Circle,
+  Point
 ];
