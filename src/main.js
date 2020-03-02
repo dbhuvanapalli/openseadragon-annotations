@@ -95,8 +95,20 @@ OpenSeadragon.Viewer.prototype.areAnnotationsActive = function areActive() {
   return isPluginActive;
 };
 
-OpenSeadragon.Viewer.prototype.startDrawing = ifPluginIsActive(function draw() {
-  selectMode('DRAW', Dispatcher, Store);
+OpenSeadragon.Viewer.prototype.startDrawingFreehand = ifPluginIsActive(function drawFreehand() {
+  selectMode('FREEHAND', Dispatcher, Store);
+});
+
+OpenSeadragon.Viewer.prototype.startDrawingRectangle = ifPluginIsActive(function drawrect() {
+  selectMode('RECTANGLE', Dispatcher, Store);
+});
+
+OpenSeadragon.Viewer.prototype.startDrawingCircle = ifPluginIsActive(function drawCircle() {
+  selectMode('CIRCLE', Dispatcher, Store);
+});
+
+OpenSeadragon.Viewer.prototype.startDrawingPoint = ifPluginIsActive(function drawPoint() {
+  selectMode('POINT', Dispatcher, Store);
 });
 
 OpenSeadragon.Viewer.prototype.stopDrawing = ifPluginIsActive(function stopdraw() {
