@@ -1,12 +1,27 @@
 export default function release(Dispatcher, Store) {
   switch (Store.getMode()) {
 
-    case 'DRAW':
+    case 'FREEHAND':
       Dispatcher.dispatch({
         type: 'ACTIVITY_UPDATE',
         inProgress: false,
       });
-      break;
+    case 'RECTANGLE':
+      Dispatcher.dispatch({
+        type: 'ACTIVITY_UPDATE',
+        inProgress: false,
+      });
+    case 'CIRCLE':
+      Dispatcher.dispatch({
+        type: 'ACTIVITY_UPDATE',
+        inProgress: false,
+      });
+    case 'POINT':
+      Dispatcher.dispatch({
+        type: 'ACTIVITY_UPDATE',
+        inProgress: false,
+      });
+    break;
 
     default:
       break;
