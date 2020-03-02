@@ -25,8 +25,7 @@ export default function release(Dispatcher, Store) {
         inProgress: false,
       });
       break;
-    break;
-
+    
     default:
       break;
 
