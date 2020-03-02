@@ -43,6 +43,22 @@ const shapesFactory = {
       },
     ];
   },
+  getPoint(x, y) {
+    return [
+      'circle',
+      {
+        'fill': 'none',
+        'cx': `${x}`,
+        'cy': `${y}`,
+        'radius': '1px'
+        'stroke': 'red',
+        'stroke-width': 3,
+        'stroke-linejoin': 'round',
+        'stroke-linecap': 'round',
+        'vector-effect': 'non-scaling-stroke',
+      },
+    ];
+  },
 };
 
 export default function press(x, y, Dispatcher, Store) {
@@ -86,6 +102,10 @@ export default function press(x, y, Dispatcher, Store) {
       Dispatcher.dispatch({
         type: 'ANNOTATIONS_CREATE',
         annotation: shapesFactory.getCircle(x, y),
+      });
+      Dispatcher.dispatch({
+        type: 'ACTIVITY_UPDATE',
+        inProgress: false,
       });
       break;
 
