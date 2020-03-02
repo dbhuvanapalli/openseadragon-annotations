@@ -43,22 +43,6 @@ const shapesFactory = {
       },
     ];
   },
-  getPoint(x, y) {
-    return [
-      'circle',
-      {
-        'fill': 'none',
-        'cx': `${x}`,
-        'cy': `${y}`,
-        'r': '1px',
-        'stroke': 'red',
-        'stroke-width': 3,
-        'stroke-linejoin': 'round',
-        'stroke-linecap': 'round',
-        'vector-effect': 'non-scaling-stroke',
-      },
-    ];
-  },
 };
 
 export default function press(x, y, Dispatcher, Store) {
@@ -73,6 +57,7 @@ export default function press(x, y, Dispatcher, Store) {
         type: 'ANNOTATIONS_CREATE',
         annotation: shapesFactory.getPath(x, y),
       });
+      break;
     case 'RECTANGLE':
       Dispatcher.dispatch({
         type: 'ACTIVITY_UPDATE',
@@ -80,8 +65,9 @@ export default function press(x, y, Dispatcher, Store) {
       });
       Dispatcher.dispatch({
         type: 'ANNOTATIONS_CREATE',
-        annotation: shapesFactory.getRect(x, y, width, height),
+        annotation: shapesFactory.getRect(x, y),
       });
+      break;
     case 'CIRCLE':
       Dispatcher.dispatch({
         type: 'ACTIVITY_UPDATE',
@@ -89,8 +75,9 @@ export default function press(x, y, Dispatcher, Store) {
       });
       Dispatcher.dispatch({
         type: 'ANNOTATIONS_CREATE',
-        annotation: shapesFactory.getCircle(x, y, radius),
+        annotation: shapesFactory.getCircle(x, y),
       });
+      break;
     case 'POINT':
       Dispatcher.dispatch({
         type: 'ACTIVITY_UPDATE',
@@ -98,7 +85,7 @@ export default function press(x, y, Dispatcher, Store) {
       });
       Dispatcher.dispatch({
         type: 'ANNOTATIONS_CREATE',
-        annotation: shapesFactory.getpoint(x, y),
+        annotation: shapesFactory.getCircle(x, y),
       });
       break;
 
