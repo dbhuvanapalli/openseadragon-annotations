@@ -50,7 +50,7 @@ const shapesFactory = {
         'fill': 'none',
         'cx': `${x}`,
         'cy': `${y}`,
-        'radius': '1px'
+        'radius': '1px',
         'stroke': 'red',
         'stroke-width': 3,
         'stroke-linejoin': 'round',
