@@ -13,15 +13,13 @@ const shapesFactory = {
       },
     ];
   },
-  getRect(x, y, width, height) {
+  getRect(x, y) {
     return [
       'rect',
       {
         'fill': 'none',
         'x': `${x}`,
         'y': `${y}`,
-        'width': `${width}`,
-        'height': `${height}`,
         'stroke': 'red',
         'stroke-width': 3,
         'stroke-linejoin': 'round',
@@ -30,14 +28,13 @@ const shapesFactory = {
       },
     ];
   },
-  getCircle(x, y, radius) {
+  getCircle(x, y) {
     return [
       'circle',
       {
         'fill': 'none',
         'cx': `${x}`,
         'cy': `${y}`,
-        'r': `${radius}`,
         'stroke': 'red',
         'stroke-width': 3,
         'stroke-linejoin': 'round',
