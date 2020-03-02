@@ -1,7 +1,7 @@
 export default function move(x, y, Dispatcher, Store) {
   switch (Store.getMode()) {
 
-    case 'DRAW':
+    case 'FREEHAND':
       if (Store.isActivityInProgress()) {
         const last = Store.getLast();
         if (last && last[0] === 'path') {
