@@ -7,6 +7,7 @@ export default class Control {
   constructor(options) {
     this.mode = options.Tooltip.toUpperCase();
     this.btn = new Button(extend({
+      tooltip: options.Tooltip,
       onClick: this.onClick,
     }, options));
     if (Store.getMode() === this.mode) {

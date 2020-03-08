@@ -35,6 +35,7 @@ const shapesFactory = {
         'fill': 'none',
         'cx': `${x}`,
         'cy': `${y}`,
+        'r': 0,
         'stroke': 'red',
         'stroke-width': 3,
         'stroke-linejoin': 'round',
@@ -45,11 +46,10 @@ const shapesFactory = {
   },
   getPoint(x, y) {
     return [
-      'circle',
+      'path',
       {
         'fill': 'none',
-        'cx': `${x}`,
-        'cy': `${y}`,
+        'd': `M${x} ${y}Z`,
         'radius': '1px',
         'stroke': 'red',
         'stroke-width': 3,
@@ -101,7 +101,7 @@ export default function press(x, y, Dispatcher, Store) {
       });
       Dispatcher.dispatch({
         type: 'ANNOTATIONS_CREATE',
-        annotation: shapesFactory.getCircle(x, y),
+        annotation: shapesFactory.getPoint(x, y),
       });
       Dispatcher.dispatch({
         type: 'ACTIVITY_UPDATE',

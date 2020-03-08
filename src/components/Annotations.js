@@ -61,7 +61,7 @@ class Annotations extends Component {
   handleMouseUp(e) {
     if (Store.notInMoveMode()) {
       e.stopPropagation();
-      release(Dispatcher, Store);
+      release(...this.coords(e), Dispatcher, Store);
     }
   }
 
