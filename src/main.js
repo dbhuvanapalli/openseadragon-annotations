@@ -91,6 +91,14 @@ OpenSeadragon.Viewer.prototype.initializeAnnotations = function init(cb) {
   }
 };
 
+OpenSeadragon.Viewer.prototype.setPluginActiveFl = function setIsPluginActiveFl() {
+  isPluginActive = true;
+};
+
+OpenSeadragon.Viewer.prototype.resetPluginActiveFl = function resetIsPluginActiveFl() {
+  isPluginActive = false;
+};
+
 OpenSeadragon.Viewer.prototype.areAnnotationsActive = function areActive() {
   return isPluginActive;
 };
