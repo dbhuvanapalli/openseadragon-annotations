@@ -39,10 +39,14 @@ export default function release(x, y, Dispatcher, Store) {
       if (Store.isActivityInProgress()) {
         const last = Store.getLast();
         if (last && last[0] === 'circle') {
-          const r = Math.abs(parseFloat(last[1].cx) - parseFloat(`${x}`));
+          const cx = (parseFloat(last[1].cx) + parseFloat(`${x}`))/2;
+          const cy = (parseFloat(last[1].cy) + parseFloat(`${y}`))/2;
+          var a = Math.abs(parseFloat(last[1].cx) - parseFloat(`${x}`));
+          var b = Math.abs(parseFloat(last[1].cy) - parseFloat(`${y}`));
+          const r = Math.sqrt( a*a + b*b );
           Dispatcher.dispatch({
             type: 'ANNOTATIONS_UPDATE_LAST',
-            update: {r: `${r}`},
+            update: {cx: `${cx}`, cy: `${cy}`,r: `${r}`},
           });
         }
       };

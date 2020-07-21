@@ -54,9 +54,19 @@ OpenSeadragon.Viewer.prototype.initializeAnnotations = function init(cb) {
       height: boundingClientRect.height,
     }, Dispatcher);
 
+    const activeControls = this.controls;
     controls.forEach((control) => {
-      this.addControl(control.btn.element, {
-        anchor: ControlAnchor.BOTTOM_LEFT,
+      activeControls.forEach((viewportControl) => {
+        if (viewportControl.element === control.btn.element)
+        {
+          viewportControl.setVisible(true);
+        } 
+        else 
+        {
+          this.addControl(control.btn.element, {
+            anchor: ControlAnchor.BOTTOM_LEFT,
+          });
+        }
       });
     });
 
@@ -140,7 +150,7 @@ OpenSeadragon.Viewer.prototype.shutdownAnnotations = ifPluginIsActive(function s
     ourControls.forEach((control) => {
       // destroys only the controls that we have added
       if (viewportControl.element === control.btn.element) {
-        viewportControl.destroy();
+        viewportControl.setVisible(false);
       }
     });
   });
